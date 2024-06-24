@@ -93,7 +93,6 @@ class FirebaseAuthenticator(Credentials):
         try:
             id_token = self.sign_in_with_email_and_password(email, password)["idToken"]
             account_info = self.get_account_info(id_token)
-            print(account_info)
             user_info = account_info["users"][0]
             if not user_info["emailVerified"]:
                 self.send_email_verification(id_token)
